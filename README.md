@@ -16,13 +16,19 @@ NBS ClientID and ClientSecret. Contact info@thenbs.com for API key.
 1. Clone this repository to your local system and change into this directory
 
 2. Insert Keys to sample-config.js in this directory and rename to config.js (see Prerequisites section)
-```mv sample-config.js config.js```
+```
+mv sample-config.js config.js
+```
 
 3. Install node modules
-```$npm install```
+```
+$npm install
+```
 
 4. Start the server
-```$npm start```
+```
+$npm start
+```
 
 5. Open your browser to http://localhost:3000 .
 
