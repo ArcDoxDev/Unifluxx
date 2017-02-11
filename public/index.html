@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flux Fetch</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+    <script src="https://npmcdn.com/flux-sdk-browser@0.4/dist/flux-sdk-min.js"></script>
+    <script src="https://npmcdn.com/flux-sdk-helpers@0.1/dist/flux-sdk-helpers.min.js"></script>
+    <script src="https://npmcdn.com/jwt-decode@2.1.0/build/jwt-decode.min.js"></script>
+    <script src="helpers.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+
+    <div id='login' class='button'>Login</div>
+
+    <div id='container' class="ui container">
+      <div id='header'>
+        <div id='title'>
+          <h1>FLUX Fetch</h1>
+        </div>
+      </div>
+
+      <div id='content'>
+        <div id='form'>
+          <div class='select'><select class='ui search huge dropdown project'><option value="">Select Flux project</option></select></div>
+          <div class='select'><select class='ui search huge dropdown source-keys keys'><option value="">Select source key(List of uniclass codes)</option></select></div>
+          <div class='select'><select class='ui search huge dropdown target-keys keys'><option value="">Select Target(List of LOI parameters)</option></select></div>
+        </div>
+        <button class='ui button save'>Save</button>
+      </div>
+    </div>
+
+    <div id='success'>
+      <div class='head'>Success!</div>
+      <div class='body'>Please go to <a href='' target='_blank'>your project</a> now</div>
+    </div>
+
+    <footer>
+      <div class='arcdox'>App provided by <a href='http://www.arcdox.com' target='_blank'>ARCDOX</a></div>
+      <div>Developed in association with <a href='http://www.flux.io' target='_blank'>FLUX.IO</a> &amp; <a href='http://www.jenca.io' target='_blank'>JENCA.IO</a></div>
+      <div>Uniclass data provided by <a href='https://toolkit.thenbs.com/' target='_blank'>NBS BIM TOOLKIT</a></div>
+    </footer>
+
+  </body>
+</html>

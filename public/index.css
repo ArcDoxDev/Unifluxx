@@ -1,0 +1,138 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #e8e8e8;
+  font-size: 14px;
+  line-height: 1.4285em;
+  color: rgba(0, 0, 0, 0.87);
+  font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+}
+
+#container, #success {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px !important;
+  width: 100%;
+  z-index: 1000;
+  border-radius: 4px;
+  box-shadow: 0 1px 8px 1px #bbb;
+  background: white;
+  transition: height 0.5s;
+}
+
+
+#header {
+  padding: 1em 2em;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+}
+
+#success {
+  display: none;
+  padding: 2em;
+}
+
+#success .head {
+  font-size: 30px;
+  margin-bottom: 1em;
+}
+
+#success .body {
+  font-size: 18px;
+  color: #999;
+}
+
+#login {
+  display: none;
+  text-transform: uppercase;
+  transition: opacity 0.25s ease-in-out;
+}
+
+#login {
+  background: #0fbfd6;
+}
+
+#login:hover {
+  opacity: 0.8;
+}
+
+.select {
+  margin-bottom: 1em;
+}
+
+.ui.huge.search {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  padding: 16px 20px;
+  margin-bottom: 1rem;
+}
+
+
+.ui.button.save {
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  border-top: 1px solid #ddd;
+  background: #f8f8f8;
+}
+
+.ui.button.save:hover {
+  background: #f2f2f2;
+}
+
+.ui.button.save:active {
+  color: #fff;
+  background: #0fbfd6;
+}
+
+#login.button {
+  font-size: 3em;
+  padding: 1.5em;
+  border-radius: 10px;
+  background: #0fbfd6;
+  opacity: 0.8;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 8px 1px #bbb;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#login.button:hover {
+  opacity: 1;
+}
+
+#form {
+  padding: 1em 2em;
+}
+
+footer{
+  text-align:center;
+  margin-top: 1em;
+}
+
+footer .arcdox{
+  font-size: 2em;
+  line-height: 2em;
+}
