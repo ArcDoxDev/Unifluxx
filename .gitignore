@@ -16,3 +16,4 @@ TODO
 config.js
 secrets.yaml
 *.DS_Store
+docker-compose.yml

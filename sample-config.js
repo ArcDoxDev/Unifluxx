@@ -1,15 +1,15 @@
 module.exports = {
   env : 'development',
-  url: "", //enter flux auth callback url here. http://localhost:3000 for local development.
+  url: process.env.URL || "http://localhost:3000", //enter flux auth callback url here.
   port: 3000,
   flux: {
     url: 'https://flux.io',
-    id: "", //enter flux.id here
-    secret: "", //enter flux.secret here
+    id: process.env.FLUX_ID || "", //enter flux.id here
+    secret: process.env.FLUX_SECRET || "", //enter flux.secret here
   },
   session: {
     secret: 'topSecret'
   },
-  NBS_clientId: "", //enter client.id from NBS here
-  NBS_clientSecret: "" //enter client.secret from NBS here
+  NBS_clientId: process.env.NBS_ID || "", //enter client.id from NBS here
+  NBS_clientSecret: process.env.NBS_SECRET || "" //enter client.secret from NBS here
 }

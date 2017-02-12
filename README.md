@@ -16,19 +16,22 @@ NBS ClientID and ClientSecret. Contact info@thenbs.com for API key.
 1. Clone this repository to your local system and change into this directory
 
 2. Insert Keys to sample-config.js in this directory and rename to config.js (see Prerequisites section)
-```
-mv sample-config.js config.js
-```
+
+  ```
+  $ mv sample-config.js config.js
+  ```
 
 3. Install node modules
-```
-$npm install
-```
+
+  ```
+  $ npm install
+  ```
 
 4. Start the server
-```
-$npm start
-```
+
+  ```
+  $ npm start
+  ```
 
 5. Open your browser to http://localhost:3000 .
 
@@ -44,7 +47,17 @@ $npm start
 
 ## Deployment
 
-See Dockerfile
+Use docker:
+
+```
+ $ docker run -d \
+    -e FLUX_ID=xxx \
+    -e FLUX_SECRET=xxx \
+    -e NBS_ID=xxx \
+    -e NBS_SECRET=xxx \
+    -p 3000:3000 \
+    bigdoods/unifluxx
+```
 
 ## Contributing
 
@@ -54,7 +67,7 @@ We welcome any contributions and are here to help for any developers looking to 
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Author
+## Authors
 
 * **Javier Vizoso** - *Flux sample app* - [Javiz](https://github.com/javiz)
 * **John Egan** - *Requests to NBS* - [bigdoods](https://github.com/bigdoods)
