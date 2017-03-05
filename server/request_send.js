@@ -14,20 +14,34 @@ module.exports = (code, loi) => {
         uri: uri,
         method: 'GET'
       }, function (err, res, body) {
+        // console.log("request sent for :" + code + " loi :" + loi)
         if (err) {
-          reject(err);
+          console.log('Cant reach NBS currently :', err)
+          resolve(new WrapE(err.message, code, loi));
         } else {
-          setTimeout(() => {
+          if (res.statusCode === 404){
+            resolve(new WrapE("Not found in NBS toolkit API", code, loi));
+          }
+        //  setTimeout(() => {
             try {
               var data = JSON.parse(body)
             } catch (e) {
-              reject(e)
+              resolve(new WrapE(e.message, code, loi));
               return
             }
             resolve(data)
-          }, 1000)
+        //  }, 000)
         }
       });
     })
   })
+}
+
+class WrapE extends Error {
+  constructor(message, code, loi){
+    super()
+    this.message = message
+    this.code = code
+    this.loi = loi
+  }
 }
