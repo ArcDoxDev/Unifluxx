@@ -37,13 +37,13 @@ NBS ClientID and ClientSecret. Contact info@thenbs.com for API key.
 
 6. Click on the login button and authorize the application to access your flux projects.
 
-7. Select a project, source and target keys. The app will listen for changes in this source key (takes an array of uniclass code strings)
+7. Select a project, source, target and error keys. The app will listen for changes in the source key (takes an array of uniclass code strings)
 
 8. Click 'save', and visit flux project.
 
 9. Update value of source key (e.g data/sampleSource.json) and wait for server to finish fetching from NBS (NBS API currently has rate limit of one request per second so 3 uniclass codes = 3 * 5(ForEach Level of Information 2-6) = 15 requests = 15 seconds.)
 
-10. See target key for reponse from NBS API (e.g data/sampleOutput.json).
+10. See target key for reponse from NBS API (e.g data/sampleOutput.json) and the Error key for details on whihc codes failed to fetch from the NBS toolkit API.
 
 ## Deployment
 
@@ -70,7 +70,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Authors
 
 * **Javier Vizoso** - *Flux sample app* - [Javiz](https://github.com/javiz)
-* **John Egan** - *Requests to NBS* - [bigdoods](https://github.com/bigdoods)
+* **John Egan** - *Requests to NBS, Error handling* - [bigdoods](https://github.com/bigdoods)
 
 ## Acknowledgments
 
