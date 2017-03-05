@@ -79,7 +79,7 @@ app.use('/api', (req, res, next) => {
 });
 
 app.post('/api/request', (req, res, next) => {
-  queue = new Queue({sdk: sdk, user: req.user, project: req.body.project, source: req.body.source, dest: req.body.dest, credentials: req.session.credentials})
+  queue = new Queue({sdk: sdk, user: req.user, project: req.body.project, source: req.body.source, dest: req.body.dest, error: req.body.error, credentials: req.session.credentials})
   res.status(200).json({success: true})
 })
 

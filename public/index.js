@@ -1,4 +1,4 @@
-var userProjects, selectedProject, selectedSource, selectedTarget
+var userProjects, selectedProject, selectedSource, selectedTarget, selectedError
 
 function isLoggedIn() {
   return request('/user')
@@ -71,14 +71,20 @@ function init() {
             selectedTarget = id
           }
         })
+        $('.ui.dropdown.error-keys').dropdown({ //class of both ui and dropbown, using jquery ui
+          onChange: function(id) {
+            selectedError = id
+          }
+        })
         $('.ui.button.save').click(() => {
           let data = {
+            project: selectedProject.id,
             source: selectedSource,
             dest: selectedTarget,
-            project: selectedProject.id
+            error: selectedError
           }
           let url = 'https://flux.io/p/' + selectedProject.id
-          $('#success a').attr('href', url) //id of success and space means cchild 'a' element. a element is decendant of success. set the href to value of url
+          $('#success a').attr('href', url) //id of success and space means child 'a' element. a element is decendant of success. set the href to value of url
           request('/api/request', {body: JSON.stringify(data), method: 'POST'}) //send all data to url
           $('#container').fadeOut(200)
           setTimeout(() => { $('#success').fadeIn(200) }, 200)
