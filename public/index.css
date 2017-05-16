@@ -1,11 +1,12 @@
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   height: 100%;
 }
 
 body {
   height: 100%;
+  font-family: 'Roboto';
   position: relative;
   margin: 0px;
   padding: 0px;

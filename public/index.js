@@ -1,79 +1,90 @@
-var userProjects, selectedProject, selectedSource, selectedTarget, selectedError
+/* global $:false, fetch:false */
+/* eslint-env browser */
 
-function isLoggedIn() {
+var userProjects, selectedProject, selectedSource, selectedTarget, selectedNotation, selectedClassification
+
+function isLoggedIn () {
   return request('/user')
     .then((status) => status.success)
 }
 
-function request(url, options) { //options is optional
-  return fetch(url, Object.assign({}, options, { credentials: 'same-origin', headers: {'content-type': 'application/json'}})) //fetch is internal function
+function request (url, options) {
+  return fetch(url, Object.assign({}, options, {credentials: 'same-origin', headers: {'content-type': 'application/json'}}))
     .then(res => res.json())
     .catch(err => alert(err))
 }
 
-function getProjects() {
-  return request('/api/projects').then(function(projects) { return userProjects = projects });
+function getProjects () {
+  return request('/api/projects').then(function (projects) {
+    userProjects = projects
+    return userProjects
+  })
 }
 
-function hideLogin() {
+function hideLogin () {
   $('#login').hide()
   $('#container').show()
 }
 
-function showLogin() {
+function showLogin () {
   $('#login').show().click(() => window.location.replace('/login')) // change url location of browser
   $('#container').hide()
 }
 
-function fetchProjects() {
-  return getProjects().then(function(data) {
-    $('.project .menu').empty(); //anything with a class of menu is a child of a class of project.
+function fetchProjects () {
+  return getProjects().then(function (data) {
+    $('.project .menu').empty() // anything with a class of menu is a child of a class of project.
     for (var p of userProjects) {
-      $('.project .menu').append('<div class="item" data-value="' + p.id + '">' + p.name + '</div>');
+      $('.project .menu').append('<div class="item" data-value="' + p.id + '">' + p.name + '</div>')
     }
     $('.project').dropdown('refresh')
     return data
   })
 }
 
-function fetchKeys() {
-  return getKeys().then(function(data) {
-    $('.keys .menu').empty();
+function fetchKeys () {
+  return getKeys().then(function (data) {
+    $('.keys .menu').empty()
     for (var k of data) {
-      $('.keys .menu').append('<div class="item" data-value="' + k.label + '">' + k.label + '</div>');
+      $('.keys .menu').append('<div class="item" data-value="' + k.label + '">' + k.label + '</div>')
     }
     $('.keys').dropdown('refresh')
     return data
   })
 }
 
-function getKeys() {
-  return request('/api/keys?projectId=' + encodeURIComponent(selectedProject.id));
+function getKeys () {
+  return request('/api/keys?projectId=' + encodeURIComponent(selectedProject.id))
 }
 
-function init() {
+function init () {
   isLoggedIn()
     .then((status) => {
       if (status) {
         $('.ui.dropdown.project').dropdown({
-          onChange: function(id) {
-            selectedProject = userProjects.filter(function(p) { return p.id === id })[0]
+          onChange: function (id) {
+            selectedProject = userProjects.filter(function (p) { return p.id === id })[0]
             fetchKeys()
           }
         })
-        $('.ui.dropdown.source-keys').dropdown({ //class of both ui and dropbown, using jquery ui
-          onChange: function(id) {
+        $('.ui.dropdown.source-keys').dropdown({
+          onChange: function (id) {
             selectedSource = id
           }
         })
-        $('.ui.dropdown.target-keys').dropdown({ //class of both ui and dropbown, using jquery ui
-          onChange: function(id) {
+        $('.ui.dropdown.target-keys').dropdown({
+          onChange: function (id) {
             selectedTarget = id
           }
         })
-        $('.ui.dropdown.error-keys').dropdown({ //class of both ui and dropbown, using jquery ui
-          onChange: function(id) {
-            selectedError = id
+        $('.ui.dropdown.notation-keys').dropdown({
+          onChange: function (id) {
+            selectedNotation = id
+          }
+        })
+        $('.ui.dropdown.classification-keys').dropdown({
+          onChange: function (id) {
+            selectedClassification = id
           }
         })
         $('.ui.button.save').click(() => {
@@ -81,16 +92,17 @@ function init() {
             project: selectedProject.id,
             source: selectedSource,
             dest: selectedTarget,
-            error: selectedError
+            notation: selectedNotation,
+            classification: selectedClassification
           }
           let url = 'https://flux.io/p/' + selectedProject.id
-          $('#success a').attr('href', url) //id of success and space means child 'a' element. a element is decendant of success. set the href to value of url
-          request('/api/request', {body: JSON.stringify(data), method: 'POST'}) //send all data to url
+          $('#success a').attr('href', url)
+          request('/api/request', {body: JSON.stringify(data), method: 'POST'})
           $('#container').fadeOut(200)
           setTimeout(() => { $('#success').fadeIn(200) }, 200)
         })
         fetchProjects()
-      } else showLogin();
+      } else showLogin()
     })
 }
 

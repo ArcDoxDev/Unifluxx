@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Flux Fetch</title>
+    <title>Unifluxx</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -22,16 +22,17 @@
     <div id='container' class="ui container">
       <div id='header'>
         <div id='title'>
-          <h1>FLUX Fetch</h1>
+          <h1>Unifluxx</h1>
         </div>
       </div>
 
       <div id='content'>
         <div id='form'>
           <div class='select'><select class='ui search huge dropdown project'><option value="">Select Flux project</option></select></div>
-          <div class='select'><select class='ui search huge dropdown source-keys keys'><option value="">Select source key(List of uniclass codes)</option></select></div>
-          <div class='select'><select class='ui search huge dropdown target-keys keys'><option value="">Select Target(List of LOI parameters)</option></select></div>
-          <div class='select'><select class='ui search huge dropdown error-keys keys'><option value="">Select a key for Error logs</option></select></div>
+          <div class='select'><select class='ui search huge dropdown source-keys keys'><option value="">Uniclass Code Source</option></select></div>
+          <div class='select'><select class='ui search huge dropdown target-keys keys'><option value="">LOI data from NBS Target</option></select></div>
+          <div class='select'><select class='ui search huge dropdown notation-keys keys'><option value="">Starting Notation Source</option></select></div>
+          <div class='select'><select class='ui search huge dropdown classification-keys keys'><option value="">Classification tree Target</option></select></div>
         </div>
         <button class='ui button save'>Save</button>
       </div>

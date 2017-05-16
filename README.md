@@ -1,6 +1,15 @@
+[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 # Unifluxx
 
-Make requests to [NBS BIM toolkit api](https://toolkit.thenbs.com/articles/for-software-developers/) from [flux.io](https://flux.io/) cell values
+App that makes requests to [NBS BIM toolkit api](https://toolkit.thenbs.com/articles/for-software-developers/) from [flux.io](https://flux.io/) cell values.
+
+This app uses the following endpoints from the NBS BIM toolkit API:
+
+ - [GET-definitions-loi-notation-level](https://toolkit-api.thenbs.com/routes/GET-definitions-loi-notation-level)
+
+ - [GET-definitions-uniclass2015-notation-depth](https://toolkit-api.thenbs.com/routes/GET-definitions-uniclass2015-notation-depth)
+
 
 ### Prerequisites
 
@@ -12,6 +21,8 @@ NBS ClientID and ClientSecret. Contact info@thenbs.com for API key.
 
 
 ## Getting Started
+
+If you are an end-user of the application please go to step #7.
 
 1. Clone this repository to your local system and change into this directory
 
@@ -37,13 +48,20 @@ NBS ClientID and ClientSecret. Contact info@thenbs.com for API key.
 
 6. Click on the login button and authorize the application to access your flux projects.
 
-7. Select a project, source, target and error keys. The app will listen for changes in the source key (takes an array of uniclass code strings)
+7. Select keys as follows:
+
+ - Select Flux Project = the flux project that you would like to select keys as
+
+ -  Uniclass Code Source = Key with uniclass codes to fetch from NBS
+LOI data from NBS target = The key that the app will return LOI data from NBS
+ -  Starting Notation Source = Key with specified starting notation to fetch from NBS
+ -  Classification tree target = The target key for classification tree response from NBS
+
+Please See NBS BIM toolkit endpoints for further details.
 
 8. Click 'save', and visit flux project.
 
-9. Update value of source key (e.g data/sampleSource.json) and wait for server to finish fetching from NBS (NBS API currently has rate limit of one request per second so 3 uniclass codes = 3 * 5(ForEach Level of Information 2-6) = 15 requests = 15 seconds.)
-
-10. See target key for reponse from NBS API (e.g data/sampleOutput.json) and the Error key for details on whihc codes failed to fetch from the NBS toolkit API.
+9. The app will listen for changes in Source keys and will trigger updates to target keys when values modified. Update soure keys and wait for target keys to populate.
 
 ## Deployment
 
@@ -59,19 +77,14 @@ Use docker:
     bigdoods/unifluxx
 ```
 
-## Contributing
-
-We welcome any contributions and are here to help for any developers looking to get started.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Authors
 
-* **Javier Vizoso** - *Flux sample app* - [Javiz](https://github.com/javiz)
-* **John Egan** - *Requests to NBS, Error handling* - [bigdoods](https://github.com/bigdoods)
+[jenca](http://jenca.org/)
 
 ## Acknowledgments
 
-* Hat tip to Alan Smith for NBS contributions
+* Hat tip to Javier Vizoso for flux getting started
