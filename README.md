@@ -50,12 +50,16 @@ If you are an end-user of the application please go to step #7.
 
 7. Select keys as follows:
 
- - Select Flux Project = the flux project that you would like to select keys as
+ - Select Flux Project => the flux project that you would like to select keys from
 
- -  Uniclass Code Source = Key with uniclass codes to fetch from NBS
-LOI data from NBS target = The key that the app will return LOI data from NBS
- -  Starting Notation Source = Key with specified starting notation to fetch from NBS
- -  Classification tree target = The target key for classification tree response from NBS
+ -  Uniclass Code Source => Key with uniclass codes to fetch from NBS
+
+
+ - LOI data from NBS target => The key that the app will return LOI data from NBS
+
+ -  Starting Notation Source => Key with specified starting notation to fetch from NBS
+
+ -  Classification tree target => The target key for classification tree response from NBS
 
 Please See NBS BIM toolkit endpoints for further details.
 
