@@ -19,15 +19,17 @@ module.exports = (code, loi) => {
         } else {
           if (res.statusCode === 404) {
             resolve({ error: 404, Notation: code, Loi: loi })
+          } else {
+            try {
+              var data = JSON.parse(body)
+            } catch (err) {
+              err.type = 'bad json response from nbs'
+              reject(err)
+              console.log(err)
+              return
+            }
+            resolve(data)
           }
-          try {
-            var data = JSON.parse(body)
-          } catch (err) {
-            err.type = 'bad json response from nbs'
-            reject(err)
-            return
-          }
-          resolve(data)
         }
       })
     })
