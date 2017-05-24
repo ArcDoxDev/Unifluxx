@@ -7,9 +7,12 @@ const formData = querystring.stringify({ scope: 'bimtoolkitapi', grant_type: 'cl
 
 let tokens
 
+let time
+
 module.exports = function getTokens () {
-  if (tokens) return Promise.resolve(tokens)
-  else {
+  if (Math.round(new Date() / 1000) - time < 3595) {
+    return Promise.resolve(tokens)
+  } else {
     return new Promise((resolve, reject) => {
       request({
         headers: {
@@ -23,6 +26,7 @@ module.exports = function getTokens () {
         if (err) reject(err)
         else {
           tokens = JSON.parse(body).access_token
+          time = Math.round(new Date() / 1000)
           resolve(tokens)
         }
       }
