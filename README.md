@@ -54,7 +54,6 @@ If you are an end-user of the application please go to step #7.
 
  -  Uniclass Code Source => Key with uniclass codes to fetch from NBS
 
-
  - LOI data from NBS target => The key that the app will return LOI data from NBS
 
  -  Starting Notation Source => Key with specified starting notation to fetch from NBS
@@ -65,7 +64,7 @@ Please See NBS BIM toolkit endpoints for further details.
 
 8. Click 'save', and visit flux project.
 
-9. The app will listen for changes in Source keys and will trigger updates to target keys when values modified. Update soure keys and wait for target keys to populate.
+9. The app will listen for changes in Source keys and will trigger updates to target keys when values modified. Update soure keys and wait for target keys to populate. See [sampleData](/sampleData/README.md) for example data for keys. 
 
 ## Deployment
 
@@ -91,4 +90,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to Javier Vizoso for flux getting started
+* Hat tip to [Javier Vizoso](https://github.com/javiz) from flux for help getting started
